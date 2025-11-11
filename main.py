@@ -15,6 +15,8 @@ from agent import DoubleDQN_Agent
 from baseline_agents import RRAgent, GreedyAgent
 import os
 import random
+import datetime               # <--- 1. 导入 datetime
+import tensorflow as tf
 
 # 确保可复现性
 np.random.seed(42)
@@ -23,7 +25,7 @@ random.seed(42)
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # 确保使用 CPU
 
-def run_simulation(agent, agent_name, workload, is_training=False):
+def run_simulation(agent, agent_name, workload, is_training=False,log_writer=None):
     """
     运行一次完整的仿真（训练或评估）
     """
@@ -38,6 +40,9 @@ def run_simulation(agent, agent_name, workload, is_training=False):
     # 3. 运行仿真
     state = env.get_state()
     done = False
+
+    # --- 4. 添加一个 step_count ---
+    step_count = 0
 
     # 收集指标
     step_metrics = {
@@ -64,10 +69,13 @@ def run_simulation(agent, agent_name, workload, is_training=False):
         # 2. 环境执行动作
         next_state, reward, done, info = env.step(action)
 
+        # --- 5. 修改训练和日志记录逻辑 ---
+        loss_value = None  # 初始化 loss
+
         # 3. 如果是训练模式，DQN需要存储和学习
         if agent_name == "DoubleDQN" and is_training:
             agent.store_experience(state, action, reward, next_state, done)
-            agent.learn()
+            loss_value = agent.learn()  # 捕获 agent.learn() 返回的 loss
 
         # 4. 收集指标
         step_metrics['rewards'].append(reward)
@@ -80,8 +88,21 @@ def run_simulation(agent, agent_name, workload, is_training=False):
         if info.get("success"):
             tasks_scheduled += 1
 
+        # --- 6. 添加 TensorBoard 日志记录块 ---
+        if log_writer is not None:
+            with log_writer.as_default():
+                tf.summary.scalar('Environment/Reward', reward, step=step_count)
+                tf.summary.scalar('Environment/Avg_Utilization_Percent', np.mean(state["utilization"]) * 100.0,step=step_count)
+                tf.summary.scalar('Environment/Overload_Servers', overloads, step=step_count)
+
+                if agent_name == "DoubleDQN" and is_training:
+                    tf.summary.scalar('Agent/Epsilon', agent.epsilon, step=step_count)
+                    if loss_value is not None:
+                        tf.summary.scalar('Agent/Loss', loss_value, step=step_count)
+
         # 更新状态
         state = next_state
+        step_count += 1  # 递增 step_count
 
     # 5. 计算最终平均指标
     total_steps = len(step_metrics['rewards'])
@@ -100,7 +121,7 @@ def run_simulation(agent, agent_name, workload, is_training=False):
         "Agent": agent_name,
         "Mode": "Training" if is_training else "Evaluation",
         "Avg Reward": np.mean(step_metrics['rewards']),
-        "Avg Temp (°C)": np.mean(step_metrics['rack_temps_mean']),
+        # "Avg Temp (°C)": np.mean(step_metrics['rack_temps_mean']),
         "Avg Util (%)": np.mean(step_metrics['util_mean']) * 100.0,
         # 我们计算的是平均每一步的过载服务器数量
         "Avg Overloads": np.mean(step_metrics['overload_counts']),
@@ -112,16 +133,24 @@ def run_simulation(agent, agent_name, workload, is_training=False):
 # --- 运行主程序 ---
 if __name__ == "__main__":
 
-    # 1. 加载工作负载
+    # --- 1. 加载工作负载 (现在变得更简洁) ---
+    print("\n--- 阶段 0: 正在加载/生成工作负载 ---")
     # 论文: 3000个任务用于训练
-    train_workload = task_manager.load_synthetic_workload(3000)
+    train_workload = task_manager.get_train_workload()
     # 论文: 500个任务用于验证
-    eval_workload = task_manager.load_synthetic_workload(500)
+    eval_workload = task_manager.get_eval_workload()
+    # --- 修改结束 ---
 
     # 2. 初始化所有 Agents
     dqn_agent = DoubleDQN_Agent()
     rr_agent = RRAgent(config.TOTAL_SERVERS)
     greedy_agent = GreedyAgent(config.TOTAL_SERVERS)
+
+    # --- 10. (新) 阶段 0: 设置 TensorBoard ---
+    log_dir = "logs/dqn-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    train_writer = tf.summary.create_file_writer(log_dir)
+    print(f"\n--- TensorBoard 日志将保存到: {log_dir} ---")
+    print(f"--- (在终端中运行 'tensorboard --logdir logs' 来查看) ---")
 
     # --- 阶段 1: 训练 DQN Agent ---
     print("\n--- 阶段 1: 正在训练 DoubleDQN Agent (3000 任务) ---")
@@ -130,6 +159,10 @@ if __name__ == "__main__":
     print("DQN 训练完成。")
     print(f"  训练结果: Avg Reward: {train_results['Avg Reward']:.2f}, "
           f"Tasks Scheduled: {train_results['Tasks Scheduled']}/3000")
+
+    # --- 12. (新) 阶段 1b: 保存模型 ---
+    model_save_path = "dqn_trained_weights.h5"
+    dqn_agent.save_model_weights(model_save_path)
 
     # --- 阶段 2: 评估所有 Agents ---
     print(f"\n--- 阶段 2: 正在评估三种算法 (使用 500 任务) ---")
@@ -150,12 +183,13 @@ if __name__ == "__main__":
     print("\n--- 评估完成：对比结果 (模拟 论文表5) ---")
 
     print(
-        f"{'Agent':<12} | {'Avg Reward':<12} | {'Avg Temp (°C)':<15} | {'Avg Overloads':<15} | {'Avg Util (%)':<15} | {'Tasks Scheduled':<15}")
+        f"{'Agent':<12} | {'Avg Reward':<12} | {'Avg Overloads':<15} | {'Avg Util (%)':<15} | {'Tasks Scheduled':<15}")
     print("-" * 90)
 
     for res in [dqn_eval_results, rr_eval_results, greedy_eval_results]:
         print(f"{res['Agent']:<12} | {res['Avg Reward']:<12.2f} | "
-              f"{res['Avg Temp (°C)']:<15.2f} | {res['Avg Overloads']:<15.2f} | "
+              # f"{res['Avg Temp (°C)']:<15.2f} | {res['Avg Overloads']:<15.2f} | "
+              f"{res['Avg Overloads']:<15.2f} | "
               f"{res['Avg Util (%)']:<15.2f} | {res['Tasks Scheduled']:<15}")
 
     print("\n注意: 'Avg Overloads' 指在任意时间步，利用率超过 80% [cite: 299] 的服务器的平均数量。")

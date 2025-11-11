@@ -8,6 +8,7 @@ Double DQN 智能体 (Agent) - TensorFlow 2.8 版本
 """
 
 import tensorflow as tf
+import os
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
@@ -123,6 +124,29 @@ class DoubleDQN_Agent:
         self.target_network.build(input_shape=(None, self.state_dim))
         self.update_target_network()
 
+        self.q_network.build(input_shape=(None, self.state_dim))
+        self.target_network.build(input_shape=(None, self.state_dim))
+        self.update_target_network()
+
+        # --- 在此处添加以下两个新方法 ---
+    def save_model_weights(self, filepath):
+        """保存 Q-Network 的权重"""
+        print(f"\n[Agent] 正在保存模型权重到: {filepath}")
+        self.q_network.save_weights(filepath)
+        print("[Agent] 保存完毕。")
+
+    def load_model_weights(self, filepath):
+        """加载 Q-Network 的权重"""
+        if os.path.exists(filepath):
+            print(f"\n[Agent] 正在从 {filepath} 加载模型权重...")
+            self.q_network.load_weights(filepath)
+            # 加载权重后，立即同步目标网络
+            self.update_target_network()
+            print("[Agent] 加载完毕。")
+        else:
+            print(f"\n[Agent] 警告: 找不到模型文件 {filepath}。将使用随机初始化的网络。")
+    # --- 添加结束 ---
+
     def update_target_network(self):
         """
         将 Q 网络的权重复制到目标网络
@@ -202,7 +226,7 @@ class DoubleDQN_Agent:
         # 1. 检查是否有足够的经验
         # (Check if there is enough experience)
         if len(self.memory) < BATCH_SIZE:
-            return
+            return None
 
         # 2. 从回放池中采样
         # (Sample from replay buffer)
@@ -263,3 +287,5 @@ class DoubleDQN_Agent:
         # (Follows Table 4: Target network update period = 30)
         if self.steps_done % TARGET_UPDATE_PERIOD == 0:
             self.update_target_network()
+
+        return loss.numpy()
