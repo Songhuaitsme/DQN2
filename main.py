@@ -167,7 +167,7 @@ if __name__ == "__main__":
     # --- 阶段 1: 训练 DQN Agent ---
     print("\n--- 阶段 1: 正在训练 DoubleDQN Agent ---")
 
-    NUM_EPISODES = 50  # 运行 200 轮
+    NUM_EPISODES = 250  # 运行 200 轮
     global_step = 0  # 初始化全局步数
 
     for episode in range(NUM_EPISODES):

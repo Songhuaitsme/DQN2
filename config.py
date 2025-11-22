@@ -1,9 +1,9 @@
 
 # 1. 硬件配置 (来自 3.2.2 节)
-NUM_RACKS = 4
-SERVERS_PER_RACK = 28
+NUM_RACKS = 1
+SERVERS_PER_RACK = 10
 TOTAL_SERVERS = NUM_RACKS * SERVERS_PER_RACK
-CPU_PER_SERVER = 26
+CPU_PER_SERVER = 24
 
 STATE_DIM = (TOTAL_SERVERS * 3) + 2
 
@@ -30,7 +30,7 @@ R_JOB_FAIL = -5.0         # (保持) 调度失败/放弃的奖励 (必须最差)
 
 # 6. DRL Agent 超参数 (来自 论文表4 / agent.py)
 GAMMA = 0.95  # 折扣因子 (Discount factor)
-LR = 0.001  # 学习率 (Learning rate)
+LR = 0.0001  # 学习率 (Learning rate)
 REPLAY_MEMORY_SIZE = 50000  # 内存容量 (Memory capacity)
 BATCH_SIZE = 128  # 批量尺寸 (Batch size)
 EPS_START = 0.15  # epsilon 初始值 (Epsilon initial value)

@@ -81,28 +81,39 @@ class DataCenterEnv:
                 server.assign_task(current_task)
                 success = True
                 message = f"Assigned to server {server.id}"
-                # (*** 新的奖励逻辑: 计算全局统计数据 ***)
-                # 获取刚刚更新的 t+1 时刻的全局状态
-                current_state_dict = self.get_state()
-                util_vector = current_state_dict["utilization"]
-                # 1. 奖励: 平均利用率
-                mean_util = np.mean(util_vector)
-                # 2. 惩罚: 负载不均衡 (标准差)
-                std_dev_util = np.std(util_vector)
-                # 3. 惩罚: 过载服务器数量
-                overload_count = np.sum(util_vector > config.UTILIZATION_THRESHOLD)
-                # R = (Alpha * Mean_Util) - (Beta * StdDev_Util) - (Gamma * Overload_Count)
-                reward = (mean_util * config.ALPHA_UTIL_BONUS) - \
-                         (std_dev_util * config.BETA_IMBALANCE_PENALTY) - \
-                         (overload_count * config.GAMMA_OVERLOAD_PENALTY)
+                # --- 新的简化奖励逻辑 (Positive Reward) ---
+
+                # 1. 基础奖励：调度成功就是好事 (+1.0)
+                base_reward = 1.0
+
+                # 2. 利用率奖励：鼓励填充服务器
+                # 我们看这台服务器分配任务后的利用率。
+                # 如果服务器从空闲(0%)变成忙碌，这是好事，提升了资源效率。
+                util_bonus = server.utilization * 2.0  # 范围 0.0 ~ 2.0
+
+                # 3. 过载惩罚 (软约束)
+                # 如果这台服务器利用率超过 0.8，稍微扣点分，但不至于扣成负数
+                overload_penalty = 0.0
+                if server.utilization > config.UTILIZATION_THRESHOLD:
+                    overload_penalty = 2.0
+
+                else:
+                    overload_penalty = 0.0
+
+                reward = base_reward + util_bonus - overload_penalty
+                # 结果范围大约是 +1.0 到 +3.0，始终是正的。
+
                 # 移除任务
                 self.task_queue.popleft()
             # 3b. 尝试失败 (服务器忙碌)
             else:
                 success = False
-                message = f"Server {server.id} cannot take task (Busy or Insufficient CPU)"
-                reward = config.R_BUSY_PENALTY  # (保持 -0.1)
-                # *不*移除任务，Agent 必须在下一步重试
+                message = "Server Busy"
+                # 给予固定负向惩罚，迫使它避开满载服务器
+                reward = -1.0
+                # 关键：一定要移除任务，或者让它重试（建议根据之前的修复，这里要移除以防死循环）
+                self.task_queue.popleft()
+
         # 动作无效 (例如: action = 673)
         else:
             success = False

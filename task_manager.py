@@ -51,7 +51,7 @@ def _generate_and_save_workload(num_raw_tasks,filename):
     for _ in range(num_raw_tasks):
         # 随机生成原始任务，允许CPU > 24 以测试划分逻辑
         cpu = random.randint(1, 30)
-        duration = random.randint(10, 50)  # 模拟的时间步 (Simulated time steps)
+        duration = random.randint(30, 70)  # 模拟的时间步 (Simulated time steps)
         raw_tasks.append({'cpu': cpu, 'duration': duration})
 
     # --- 保存逻辑现在在这里 ---

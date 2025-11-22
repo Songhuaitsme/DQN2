@@ -128,17 +128,24 @@ class DoubleDQN_Agent:
         """
         将环境返回的字典状态扁平化为DQN输入向量
         """
-        s1 = state_dict['available_cpu']
+
+        # --- 修改开始 ---
+        # 归一化处理 (Normalization)
+        # CPU: 0~26 -> 0~1
+        s1 = state_dict['available_cpu'] / config.CPU_PER_SERVER
+        # Utilization: 0~1 -> 0~1 (无需修改)
         s2 = state_dict['utilization']
-        s3 = state_dict['power']
+        # Power: 100~300 -> 0~1 (除以最大功率)
+        s3 = state_dict['power'] / config.P_FULL
 
         # 1. 扁平化服务器状态 (意大利面式)
-        # server_vec = np.concatenate([s1, s2, s3], axis=0)
         server_vec = np.stack([s1, s2, s3], axis=1).flatten().astype(np.float32)
         # 2. 扁平化任务状态
         if task is not None:
             # 有任务，使用它的 CPU 和持续时间
-            task_vec = np.array([task.cpu_needed, task.duration], dtype=np.float32)
+            task_cpu = task.cpu_needed / config.CPU_PER_SERVER
+            task_dur = task.duration / 100.0
+            task_vec = np.array([task_cpu,task_dur], dtype=np.float32)
         else:
             # 没有任务 (例如在 episode 结束时)
             task_vec = np.array([0.0, 0.0], dtype=np.float32)
