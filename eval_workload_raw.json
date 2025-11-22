@@ -1,602 +1,602 @@
 [
   {
     "cpu": 17,
-    "duration": 27
+    "duration": 47
   },
   {
     "cpu": 14,
-    "duration": 40
+    "duration": 60
   },
   {
     "cpu": 16,
-    "duration": 25
-  },
-  {
-    "cpu": 15,
     "duration": 45
   },
   {
+    "cpu": 15,
+    "duration": 65
+  },
+  {
     "cpu": 5,
-    "duration": 34
+    "duration": 54
   },
   {
     "cpu": 7,
-    "duration": 48
+    "duration": 68
   },
   {
     "cpu": 17,
-    "duration": 18
+    "duration": 38
   },
   {
     "cpu": 28,
-    "duration": 14
+    "duration": 34
   },
   {
     "cpu": 9,
-    "duration": 36
+    "duration": 56
   },
   {
     "cpu": 11,
-    "duration": 42
+    "duration": 62
   },
   {
     "cpu": 9,
-    "duration": 10
+    "duration": 30
   },
   {
     "cpu": 10,
-    "duration": 29
+    "duration": 49
   },
   {
     "cpu": 27,
-    "duration": 47
+    "duration": 67
   },
   {
     "cpu": 19,
-    "duration": 41
+    "duration": 61
   },
   {
     "cpu": 28,
-    "duration": 19
+    "duration": 39
   },
   {
     "cpu": 15,
-    "duration": 44
+    "duration": 64
   },
   {
     "cpu": 16,
-    "duration": 32
+    "duration": 52
   },
   {
     "cpu": 11,
+    "duration": 65
+  },
+  {
+    "cpu": 25,
+    "duration": 64
+  },
+  {
+    "cpu": 13,
+    "duration": 59
+  },
+  {
+    "cpu": 30,
+    "duration": 50
+  },
+  {
+    "cpu": 28,
+    "duration": 42
+  },
+  {
+    "cpu": 23,
     "duration": 45
   },
   {
-    "cpu": 25,
-    "duration": 44
-  },
-  {
-    "cpu": 13,
-    "duration": 39
-  },
-  {
-    "cpu": 30,
-    "duration": 30
-  },
-  {
-    "cpu": 28,
-    "duration": 22
-  },
-  {
-    "cpu": 23,
-    "duration": 25
-  },
-  {
     "cpu": 19,
-    "duration": 34
+    "duration": 54
   },
   {
     "cpu": 8,
-    "duration": 36
+    "duration": 56
   },
   {
     "cpu": 2,
-    "duration": 30
+    "duration": 50
   },
   {
     "cpu": 24,
-    "duration": 40
+    "duration": 60
   },
   {
     "cpu": 23,
-    "duration": 34
+    "duration": 54
   },
   {
     "cpu": 13,
-    "duration": 19
-  },
-  {
-    "cpu": 16,
-    "duration": 12
-  },
-  {
-    "cpu": 5,
-    "duration": 42
-  },
-  {
-    "cpu": 19,
-    "duration": 31
-  },
-  {
-    "cpu": 28,
-    "duration": 16
-  },
-  {
-    "cpu": 28,
-    "duration": 38
-  },
-  {
-    "cpu": 4,
-    "duration": 43
-  },
-  {
-    "cpu": 30,
     "duration": 39
   },
   {
-    "cpu": 1,
-    "duration": 19
-  },
-  {
-    "cpu": 14,
-    "duration": 19
-  },
-  {
-    "cpu": 3,
-    "duration": 40
-  },
-  {
-    "cpu": 26,
-    "duration": 26
-  },
-  {
-    "cpu": 11,
-    "duration": 49
-  },
-  {
-    "cpu": 23,
-    "duration": 35
-  },
-  {
-    "cpu": 21,
-    "duration": 15
-  },
-  {
-    "cpu": 28,
-    "duration": 31
-  },
-  {
-    "cpu": 28,
-    "duration": 44
-  },
-  {
-    "cpu": 13,
-    "duration": 30
-  },
-  {
-    "cpu": 21,
-    "duration": 41
-  },
-  {
-    "cpu": 28,
-    "duration": 44
-  },
-  {
-    "cpu": 2,
-    "duration": 49
-  },
-  {
-    "cpu": 3,
-    "duration": 25
-  },
-  {
-    "cpu": 21,
-    "duration": 28
-  },
-  {
-    "cpu": 8,
-    "duration": 15
-  },
-  {
-    "cpu": 14,
-    "duration": 16
-  },
-  {
-    "cpu": 25,
-    "duration": 50
-  },
-  {
-    "cpu": 23,
-    "duration": 16
-  },
-  {
-    "cpu": 15,
-    "duration": 20
-  },
-  {
-    "cpu": 23,
-    "duration": 29
-  },
-  {
-    "cpu": 29,
-    "duration": 11
-  },
-  {
-    "cpu": 2,
-    "duration": 30
-  },
-  {
-    "cpu": 26,
-    "duration": 13
-  },
-  {
-    "cpu": 10,
+    "cpu": 16,
     "duration": 32
   },
   {
-    "cpu": 12,
-    "duration": 37
-  },
-  {
     "cpu": 5,
-    "duration": 25
+    "duration": 62
   },
   {
-    "cpu": 17,
+    "cpu": 19,
+    "duration": 51
+  },
+  {
+    "cpu": 28,
     "duration": 36
   },
   {
-    "cpu": 19,
-    "duration": 21
-  },
-  {
-    "cpu": 6,
-    "duration": 21
-  },
-  {
-    "cpu": 3,
-    "duration": 49
-  },
-  {
     "cpu": 28,
-    "duration": 34
-  },
-  {
-    "cpu": 20,
-    "duration": 25
-  },
-  {
-    "cpu": 16,
-    "duration": 47
-  },
-  {
-    "cpu": 5,
-    "duration": 24
-  },
-  {
-    "cpu": 15,
-    "duration": 50
-  },
-  {
-    "cpu": 9,
-    "duration": 39
-  },
-  {
-    "cpu": 9,
-    "duration": 10
-  },
-  {
-    "cpu": 29,
-    "duration": 39
-  },
-  {
-    "cpu": 29,
-    "duration": 28
-  },
-  {
-    "cpu": 22,
-    "duration": 44
-  },
-  {
-    "cpu": 6,
-    "duration": 14
-  },
-  {
-    "cpu": 15,
-    "duration": 32
-  },
-  {
-    "cpu": 19,
-    "duration": 29
-  },
-  {
-    "cpu": 21,
-    "duration": 37
-  },
-  {
-    "cpu": 23,
-    "duration": 26
-  },
-  {
-    "cpu": 15,
-    "duration": 29
-  },
-  {
-    "cpu": 7,
-    "duration": 34
-  },
-  {
-    "cpu": 28,
-    "duration": 40
+    "duration": 58
   },
   {
     "cpu": 4,
-    "duration": 25
-  },
-  {
-    "cpu": 13,
-    "duration": 46
-  },
-  {
-    "cpu": 12,
-    "duration": 46
-  },
-  {
-    "cpu": 10,
-    "duration": 28
-  },
-  {
-    "cpu": 1,
-    "duration": 35
-  },
-  {
-    "cpu": 9,
-    "duration": 10
-  },
-  {
-    "cpu": 19,
-    "duration": 13
+    "duration": 63
   },
   {
     "cpu": 30,
+    "duration": 59
+  },
+  {
+    "cpu": 1,
+    "duration": 39
+  },
+  {
+    "cpu": 14,
+    "duration": 39
+  },
+  {
+    "cpu": 3,
+    "duration": 60
+  },
+  {
+    "cpu": 26,
+    "duration": 46
+  },
+  {
+    "cpu": 11,
+    "duration": 69
+  },
+  {
+    "cpu": 23,
+    "duration": 55
+  },
+  {
+    "cpu": 21,
+    "duration": 35
+  },
+  {
+    "cpu": 28,
+    "duration": 51
+  },
+  {
+    "cpu": 28,
+    "duration": 64
+  },
+  {
+    "cpu": 13,
+    "duration": 50
+  },
+  {
+    "cpu": 21,
+    "duration": 61
+  },
+  {
+    "cpu": 28,
+    "duration": 64
+  },
+  {
+    "cpu": 2,
+    "duration": 69
+  },
+  {
+    "cpu": 3,
+    "duration": 45
+  },
+  {
+    "cpu": 21,
     "duration": 48
   },
   {
-    "cpu": 24,
-    "duration": 41
-  },
-  {
-    "cpu": 27,
-    "duration": 28
-  },
-  {
-    "cpu": 25,
-    "duration": 24
-  },
-  {
-    "cpu": 20,
-    "duration": 32
-  },
-  {
     "cpu": 8,
-    "duration": 50
+    "duration": 35
   },
   {
-    "cpu": 7,
-    "duration": 49
-  },
-  {
-    "cpu": 9,
-    "duration": 18
-  },
-  {
-    "cpu": 21,
-    "duration": 16
-  },
-  {
-    "cpu": 29,
-    "duration": 50
-  },
-  {
-    "cpu": 21,
-    "duration": 12
-  },
-  {
-    "cpu": 10,
-    "duration": 38
-  },
-  {
-    "cpu": 2,
-    "duration": 47
-  },
-  {
-    "cpu": 12,
-    "duration": 18
-  },
-  {
-    "cpu": 3,
-    "duration": 28
-  },
-  {
-    "cpu": 11,
+    "cpu": 14,
     "duration": 36
   },
   {
-    "cpu": 6,
-    "duration": 22
+    "cpu": 25,
+    "duration": 70
   },
   {
-    "cpu": 5,
-    "duration": 44
+    "cpu": 23,
+    "duration": 36
+  },
+  {
+    "cpu": 15,
+    "duration": 40
+  },
+  {
+    "cpu": 23,
+    "duration": 49
   },
   {
     "cpu": 29,
+    "duration": 31
+  },
+  {
+    "cpu": 2,
+    "duration": 50
+  },
+  {
+    "cpu": 26,
     "duration": 33
   },
   {
-    "cpu": 17,
-    "duration": 42
-  },
-  {
-    "cpu": 30,
-    "duration": 27
-  },
-  {
-    "cpu": 27,
-    "duration": 20
-  },
-  {
-    "cpu": 9,
-    "duration": 40
-  },
-  {
-    "cpu": 26,
-    "duration": 28
-  },
-  {
-    "cpu": 24,
-    "duration": 31
-  },
-  {
-    "cpu": 26,
-    "duration": 17
-  },
-  {
-    "cpu": 15,
-    "duration": 14
-  },
-  {
-    "cpu": 5,
-    "duration": 24
-  },
-  {
-    "cpu": 28,
-    "duration": 35
-  },
-  {
-    "cpu": 28,
-    "duration": 45
+    "cpu": 10,
+    "duration": 52
   },
   {
     "cpu": 12,
-    "duration": 15
+    "duration": 57
   },
   {
-    "cpu": 26,
-    "duration": 35
+    "cpu": 5,
+    "duration": 45
+  },
+  {
+    "cpu": 17,
+    "duration": 56
+  },
+  {
+    "cpu": 19,
+    "duration": 41
+  },
+  {
+    "cpu": 6,
+    "duration": 41
+  },
+  {
+    "cpu": 3,
+    "duration": 69
+  },
+  {
+    "cpu": 28,
+    "duration": 54
+  },
+  {
+    "cpu": 20,
+    "duration": 45
+  },
+  {
+    "cpu": 16,
+    "duration": 67
+  },
+  {
+    "cpu": 5,
+    "duration": 44
+  },
+  {
+    "cpu": 15,
+    "duration": 70
+  },
+  {
+    "cpu": 9,
+    "duration": 59
+  },
+  {
+    "cpu": 9,
+    "duration": 30
+  },
+  {
+    "cpu": 29,
+    "duration": 59
+  },
+  {
+    "cpu": 29,
+    "duration": 48
+  },
+  {
+    "cpu": 22,
+    "duration": 64
+  },
+  {
+    "cpu": 6,
+    "duration": 34
+  },
+  {
+    "cpu": 15,
+    "duration": 52
+  },
+  {
+    "cpu": 19,
+    "duration": 49
+  },
+  {
+    "cpu": 21,
+    "duration": 57
+  },
+  {
+    "cpu": 23,
+    "duration": 46
+  },
+  {
+    "cpu": 15,
+    "duration": 49
+  },
+  {
+    "cpu": 7,
+    "duration": 54
+  },
+  {
+    "cpu": 28,
+    "duration": 60
+  },
+  {
+    "cpu": 4,
+    "duration": 45
+  },
+  {
+    "cpu": 13,
+    "duration": 66
+  },
+  {
+    "cpu": 12,
+    "duration": 66
+  },
+  {
+    "cpu": 10,
+    "duration": 48
   },
   {
     "cpu": 1,
-    "duration": 26
+    "duration": 55
+  },
+  {
+    "cpu": 9,
+    "duration": 30
+  },
+  {
+    "cpu": 19,
+    "duration": 33
+  },
+  {
+    "cpu": 30,
+    "duration": 68
+  },
+  {
+    "cpu": 24,
+    "duration": 61
+  },
+  {
+    "cpu": 27,
+    "duration": 48
+  },
+  {
+    "cpu": 25,
+    "duration": 44
+  },
+  {
+    "cpu": 20,
+    "duration": 52
+  },
+  {
+    "cpu": 8,
+    "duration": 70
+  },
+  {
+    "cpu": 7,
+    "duration": 69
+  },
+  {
+    "cpu": 9,
+    "duration": 38
+  },
+  {
+    "cpu": 21,
+    "duration": 36
+  },
+  {
+    "cpu": 29,
+    "duration": 70
+  },
+  {
+    "cpu": 21,
+    "duration": 32
+  },
+  {
+    "cpu": 10,
+    "duration": 58
+  },
+  {
+    "cpu": 2,
+    "duration": 67
+  },
+  {
+    "cpu": 12,
+    "duration": 38
+  },
+  {
+    "cpu": 3,
+    "duration": 48
+  },
+  {
+    "cpu": 11,
+    "duration": 56
+  },
+  {
+    "cpu": 6,
+    "duration": 42
+  },
+  {
+    "cpu": 5,
+    "duration": 64
+  },
+  {
+    "cpu": 29,
+    "duration": 53
+  },
+  {
+    "cpu": 17,
+    "duration": 62
+  },
+  {
+    "cpu": 30,
+    "duration": 47
+  },
+  {
+    "cpu": 27,
+    "duration": 40
+  },
+  {
+    "cpu": 9,
+    "duration": 60
+  },
+  {
+    "cpu": 26,
+    "duration": 48
+  },
+  {
+    "cpu": 24,
+    "duration": 51
+  },
+  {
+    "cpu": 26,
+    "duration": 37
+  },
+  {
+    "cpu": 15,
+    "duration": 34
+  },
+  {
+    "cpu": 5,
+    "duration": 44
+  },
+  {
+    "cpu": 28,
+    "duration": 55
+  },
+  {
+    "cpu": 28,
+    "duration": 65
+  },
+  {
+    "cpu": 12,
+    "duration": 35
+  },
+  {
+    "cpu": 26,
+    "duration": 55
+  },
+  {
+    "cpu": 1,
+    "duration": 46
   },
   {
     "cpu": 18,
-    "duration": 17
+    "duration": 37
   },
   {
     "cpu": 15,
-    "duration": 33
+    "duration": 53
   },
   {
     "cpu": 22,
-    "duration": 26
+    "duration": 46
   },
   {
     "cpu": 19,
-    "duration": 34
+    "duration": 54
   },
   {
     "cpu": 27,
-    "duration": 50
+    "duration": 70
   },
   {
     "cpu": 12,
-    "duration": 16
+    "duration": 36
   },
   {
     "cpu": 22,
-    "duration": 24
+    "duration": 44
   },
   {
     "cpu": 16,
-    "duration": 11
+    "duration": 31
   },
   {
     "cpu": 20,
-    "duration": 45
+    "duration": 65
   },
   {
     "cpu": 11,
-    "duration": 49
+    "duration": 69
   },
   {
     "cpu": 8,
-    "duration": 14
-  },
-  {
-    "cpu": 21,
-    "duration": 39
-  },
-  {
-    "cpu": 30,
-    "duration": 29
-  },
-  {
-    "cpu": 21,
-    "duration": 36
-  },
-  {
-    "cpu": 4,
-    "duration": 18
-  },
-  {
-    "cpu": 2,
-    "duration": 12
-  },
-  {
-    "cpu": 10,
-    "duration": 41
-  },
-  {
-    "cpu": 4,
-    "duration": 16
-  },
-  {
-    "cpu": 8,
-    "duration": 44
-  },
-  {
-    "cpu": 5,
     "duration": 34
   },
   {
+    "cpu": 21,
+    "duration": 59
+  },
+  {
+    "cpu": 30,
+    "duration": 49
+  },
+  {
+    "cpu": 21,
+    "duration": 56
+  },
+  {
+    "cpu": 4,
+    "duration": 38
+  },
+  {
+    "cpu": 2,
+    "duration": 32
+  },
+  {
+    "cpu": 10,
+    "duration": 61
+  },
+  {
+    "cpu": 4,
+    "duration": 36
+  },
+  {
+    "cpu": 8,
+    "duration": 64
+  },
+  {
+    "cpu": 5,
+    "duration": 54
+  },
+  {
     "cpu": 15,
-    "duration": 33
+    "duration": 53
   },
   {
     "cpu": 22,
-    "duration": 44
+    "duration": 64
   },
   {
     "cpu": 14,
-    "duration": 47
+    "duration": 67
   },
   {
     "cpu": 24,
-    "duration": 19
+    "duration": 39
   },
   {
     "cpu": 29,
-    "duration": 36
+    "duration": 56
   }
 ]

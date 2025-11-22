@@ -167,7 +167,7 @@ if __name__ == "__main__":
     # --- 阶段 1: 训练 DQN Agent ---
     print("\n--- 阶段 1: 正在训练 DoubleDQN Agent ---")
 
-    NUM_EPISODES = 250  # 运行 200 轮
+    NUM_EPISODES = 250
     global_step = 0  # 初始化全局步数
 
     for episode in range(NUM_EPISODES):
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     if not os.path.exists('models'):
         os.makedirs('models')
 
-    model_save_path = "models/dqn_trained_weights.h5"
+    model_save_path = "models/dqn_trained_weights400.h5"
     dqn_agent.save_model_weights(model_save_path)
 
     # --- 阶段 2: 评估所有 Agents ---

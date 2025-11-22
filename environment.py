@@ -3,7 +3,7 @@ import config
 import it_systems
 import task_manager
 import numpy as np
-
+import math
 
 class DataCenterEnv:
     """多数据中心内部任务部署环境"""
@@ -96,6 +96,7 @@ class DataCenterEnv:
                 overload_penalty = 0.0
                 if server.utilization > config.UTILIZATION_THRESHOLD:
                     overload_penalty = 2.0
+                    # overload_penalty = 6.0 * (server.utilization - 0.8)
 
                 else:
                     overload_penalty = 0.0

@@ -76,7 +76,7 @@ def _generate_and_save_workload(num_raw_tasks,filename):
     print(f"[Workload] {num_raw_tasks} 个原始任务被拆分为 {len(final_task_queue)} 个子任务 (FCFS)。")
     return final_task_queue
 
-# --- 3. 这是 main.py 将调用的两个新函数 ---
+# --- 3. 这是 douban_spider.py 将调用的两个新函数 ---
 
 def get_train_workload():
     """
